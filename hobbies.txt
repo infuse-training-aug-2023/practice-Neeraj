@@ -1,1 +1,2 @@
 1 - Football
+2 - Cricket
