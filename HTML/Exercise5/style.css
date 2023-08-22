@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Top-Bar {
+  display: flex;
+  padding: 0.5em;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4em;
+}
+body {
+  background-color: #1a2b3a;
+  color: #fff;
+}
+
+.container {
+  padding: 0.8em;
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1em;
+}
+
+.container #range {
+  opacity: 0.5;
+}
+
+.Top-Bar {
+  padding: 2em;
+}
+
+.search-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-wrapper input,
+.search-wrapper button,
+.search-wrapper select {
+  padding: 0.3em;
+  font-size: 16px;
+
+  outline: none;
+}
+
+.container .card {
+  flex: 0 0 20%;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #000;
+  box-shadow: 0 0 5px #000;
+  overflow: hidden;
+}
+
+.container h2 {
+  text-align: center;
+  background-color: teal;
+  display: block;
+  padding: 0.5em;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 25px;
+}
+
+.container .card .image img {
+  width: 100%;
+  height: 290px;
+  padding: 0.3em;
+  border-radius: 10px;
+}
+
+.container .card .desc {
+  padding: 0.2em;
+  text-align: center;
+  color: #000;
+}
+
+.container .card .desc .title {
+  font-size: 14px;
+  margin-bottom: 0.3em;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container .card .desc p {
+  font: 14px;
+  display: flex;
+  justify-content: start;
+  gap: 0.3em;
+}
+.container .card .desc p span {
+  flex: 1 1 50%;
+}
+
+.container .card .desc p span {
+  display: inline-block;
+  padding: 0.2em;
+  text-transform: uppercase;
+  background-color: #1a2b3a;
+  border-radius: 3px;
+  color: #fff;
+}
