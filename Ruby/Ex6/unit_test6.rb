@@ -8,22 +8,35 @@ class TestBase64Encoder < Test::Unit::TestCase
     @base64_encoder = Base64Encoder.new(@input_file, @output_file)
   end
 
-  def test_read_input_file
-    content = @base64_encoder.read_input_file
-    assert content.include?('the string that will be base encoded')
+  def teardown
+    File.delete(@input_file) if File.exist?(@input_file)
+    File.delete(@output_file) if File.exist?(@output_file)
   end
 
-  def test_encode_and_replace_base64_string
+  def test_process_and_write_encoded_content_with_valid_input
     content = 'Originally... [ "the string that will be base encoded" ]. English law in 1852.'
-    updated_content = @base64_encoder.encode_and_replace_base64_string(content)
-    assert_equal 'Originally... [ "dGhlIHN0cmluZyB0aGF0IHdpbGwgYmUgYmFzZSBlbmNvZGVk" ]. English law in 1852.', updated_content
+    File.write(@input_file, content)
+
+    result = @base64_encoder.process_and_write_encoded_content
+
+    expected_encoded_content = 'Originally... [ "dGhlIHN0cmluZyB0aGF0IHdpbGwgYmUgYmFzZSBlbmNvZGVk" ]. English law in 1852.'
+    assert_equal "Encoded content saved to #{@output_file}", result
+    assert_equal expected_encoded_content, File.read(@output_file).strip
   end
 
-  def test_write_to_output_file
-    content = 'Originally, John Doe was a sham name used to indicate any plaintiff in an action of ejectment (a legal action to regain property) in civil court [ "the string that will be base encoded" ]. Richard Roe was the counterpart, to indicate the defendant. These fake names were used in delicate legal matters, a practice that was abolished in English law in 1852.'
-    updated_content = @base64_encoder.encode_and_replace_base64_string(content)
-    @base64_encoder.write_to_output_file(updated_content)
-    output_content = File.read(@output_file)
-    assert_equal updated_content, output_content.strip
+  def test_process_and_write_encoded_content_with_invalid_input
+    File.write(@input_file, 'Invalid input content')
+
+    result = @base64_encoder.process_and_write_encoded_content
+
+    assert_match(/^An error occurred: /, result)
+    assert_false File.exist?(@output_file)
+  end
+
+  def test_process_and_write_encoded_content_with_missing_input_file
+    result = @base64_encoder.process_and_write_encoded_content
+
+    assert_match(/^An error occurred: /, result)
+    assert_false File.exist?(@output_file)
   end
 end
