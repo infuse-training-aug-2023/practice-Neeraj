@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5th Task</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="Top-Bar">
+      <div>
+        <h1
+          style="
+            text-align: center;
+            font-size: 35px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.4em;
+          "
+        >
+          Movie Base
+        </h1>
+        <div class="search-wrapper">
+          <div>
+            <input
+              id="query"
+              class="query"
+              type="text"
+              placeholder="Search here"
+            />
+            <button onclick="fetchData()">Search</button>
+          </div>
+          <select name="updatecards" id="update">
+            <option value="">All</option>
+          </select>
+        </div>
+      </div>
+      <p id="range"></p>
+    </div>
+
+    <div class="container"></div>
+    <h1 id="load" style="text-align: center">
+      Search all your favourite movies here
+    </h1>
+
+    <!-- <script src="./script5.js"></script> -->
+    <script src="./script.js"></script>
+  </body>
+</html>

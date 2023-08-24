@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.wrapper {
+  padding: 1em;
+  display: flex;
+  gap: 0.8em;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.wrapper .user {
+  width: 330px;
+  padding: 1.7em;
+  background-color: #fff;
+  border: 2px solid #1a2b3a;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  position: relative;
+  color: #1a2b3a;
+  border-radius: 5px;
+}
+
+.wrapper .user #name {
+  font-size: 25px;
+  letter-spacing: 1px;
+  line-height: 18px;
+}
+
+#hobby {
+  text-align: justify;
+}
+
+#hobby span {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.wrapper .user #designation {
+  font-size: 12px;
+  letter-spacing: 2.2px;
+  color: tomato;
+}
+
+.user p span {
+  color: rgb(4, 173, 211);
+  text-transform: uppercase;
+  font-size: 14px;
+  display: inline-block;
+  background-color: #fff;
+  /* border: 2px solid #1a2b3a; */
+  padding: 0 0.2em;
+  border-radius: 2px;
+  font-weight: lighter;
+  border-left: 2px solid #1a2b3a;
+  border-right: 2px solid #1a2b3a;
+}
+
+.user #company {
+  position: absolute;
+  top: -0.6em;
+  right: 0.8em;
+}

@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clock-wrapper{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.clock-wrapper > div{
+    width: 250px;
+    height: 250px;
+    box-shadow: 0 0 6px #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+    border: 2px solid #000;
+    flex-direction: column;
+}
+
+.clock-wrapper > div > label{   
+    width: fit-content;
+    display: block;
+    padding: 0.4em;
+    user-select: none;
+    background-color: #1a2b3a;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.time{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.clock-wrapper > div > p{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#toggle-c{
+    display: none;
+}
+
+#toggle-c:checked + .clock-wrapper{
+    background-color: #1a2b3a;
+    color: #fff;
+}
+
+.clock-wrapper label span:nth-child(2){
+    display: none;
+}
+
+#toggle-c:checked + .clock-wrapper label span:nth-child(1) {
+    display: none;
+}
+#toggle-c:checked + .clock-wrapper label span:nth-child(2) {
+    display: block;
+}
+
+#toggle-c:checked + .clock-wrapper > div{
+    border: 2px solid #fff;
+    box-shadow: 0 0 6px #fff , inset 0 0 6px #fff;
+}
+
+#toggle-c:checked + .clock-wrapper > div > label{
+    background-color: #fff;
+    color: #000;
+}
+
+

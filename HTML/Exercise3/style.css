@@ -1,0 +1,366 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --nav-color : #21a4db;
+  --top-test: #016392;
+  --nav-hover : #add8e6;
+  --v_and_p : #0184ae;
+  --varandpara : #2277a0;
+  --color1 : #02a9cb;
+  --design : #f5f5f5;
+  --text-area : #e8e8e8;
+  --form-text : #2d7ea5;
+}
+body{
+  height: 100vh;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 20% auto;
+  background-color: #eee;
+}
+
+aside {
+  border-right: 1px solid rgb(205, 205, 205);
+  box-shadow: 0 0 8px #000;
+}
+
+.um-logo {
+  padding: 16px 24px;
+  height: 80px;
+  aspect-ratio: 16/24;
+  border-bottom: 1px solid rgb(205, 205, 205);
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Changes to user side nav ----> */
+
+.container .um-user {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.4em 1em;
+}
+
+.um-user > img {
+  aspect-ratio: 1/1;
+  background-color: #aaa;
+  content: url('./Image/profile.png');
+  border-radius: 50%;
+}
+
+.container .um-user div span:nth-child(1) {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.container .um-user div span:nth-child(2) {
+  font-size: 13px;
+}
+
+.container .um-user > div {
+  display: flex;
+  flex-direction: column;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  padding: 0.5em 0.5em 0.5em 1.65em;
+  display: flex;
+  gap: 0.8em;
+  text-transform: capitalize;
+  color: var(--nav-color);
+  cursor: pointer;
+}
+
+li > i {
+  font-size: 20px;
+}
+
+nav > .um-navitems__main > li:last-child {
+  border: 1px solid var(--nav-color);
+  border-left: 4px solid var(--nav-color);
+  color: var(--nav-color);
+}
+nav ul li:hover {
+  background-color: var(--nav-hover);
+}
+
+/* end */
+
+.um-user-email {
+  font-size: x-small;
+}
+
+.um-user img {
+  width: 40px;
+  
+}
+
+.test-designer {
+  width: 50%;
+  background-image: url('./Image/designer.png');
+  background-size: cover;
+}
+
+/* Main section --> */
+
+main{
+  height: stretch;
+}
+
+main .test > .test-data {
+  margin: 0.4em;
+  box-shadow: 0 0 8px #000;
+  /* border-radius: 5px; */
+  overflow: hidden;
+}
+
+main > .test > .test-data {
+  background-color: var(--top-test);
+  color: #fff;
+}
+
+main .test .test-data > span:nth-child(1) {
+  background-color: #000;
+  padding: 0.2em 0.3em;
+  color: #fff;
+}
+i {
+  cursor: pointer;
+}
+
+main .test .test-data > span:nth-child(2) {
+  padding: 0.2em;
+}
+span {
+  display: inline-block;
+}
+
+main .test .test-data .bi-x {
+  float: right;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+main .test .test-data > i {
+  padding: 0.2em;
+  cursor: pointer;
+}
+
+.test-data .test-properties {
+  display: block;
+  background-color: var(--v_and_p);
+}
+
+.test-data .test-properties > span {
+  margin: 0.1em;
+}
+
+.test-data .test-properties form {
+  background-color: #fff;
+  padding: 0.2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  font-size: 14px;
+  color: var(--form-text);
+  font-weight: 600;
+}
+
+.test-properties form .description {
+  width: 60%;
+  display: flex;
+  justify-content: end;
+}
+
+.test-properties form .details label {
+  line-height: 25px;
+}
+
+.test-properties form select {
+  border: 1px solid #eee;
+}
+
+.test-properties form select option {
+  color: #eee;
+  opacity: 0.7;
+}
+
+.test-properties form .details label {
+  margin: 0.4em 0.2em;
+}
+
+.test-data .test-properties textarea {
+  width: 70%;
+  height: 130px;
+  outline: none;
+  border-radius: 3px;
+  padding: 0.2em;
+  border: 1px solid #aaa;
+  background-color: var(--text-area);
+  width: stretch;
+}
+
+/* End */
+
+/* Test main --> */
+
+.test-main {
+  display: flex;
+  height: 67vh;
+  gap: 0.3em;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.test-main .test-flowchart {
+  width: 70%; 
+  background-color: var(--color1);
+  border-right: 1px solid turquoise;
+}
+
+.test-main .test-flowchart span {
+  display: inline-block;
+  width: 100%;
+  padding: 0.1em;
+  background-color: var(--color1);
+}
+
+.test-main .test-flowchart .options {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  color: #aaa;
+  background-color: #fff;
+  padding: 0.1em;
+}
+
+.test-main .test-flowchart .options .bi {
+  padding: 0 0.4em;
+  position: relative;
+  font-size: 18px;
+}
+
+.test-main .test-flowchart .options .bi-list-nested::after {
+  content: "";
+  background-color: #aaaaaa9e;
+  width: 1px;
+  height: 70%;
+  position: absolute;
+  right: 0;
+  top: 10%;
+}
+
+.test-main .test-flowchart .options .bi-toggle-on::after {
+  content: "";
+  background-color: #aaaaaa9e;
+  width: 1px;
+  height: 70%;
+  position: absolute;
+  right: 0;
+  top: 10%;
+}
+
+bi{
+  color: #383838;
+}
+
+.bi:hover{
+    color: #0073b5;
+}
+
+.test-main .test-flowchart .options .bi-arrows-angle-expand {
+  font-size: 15px;
+}
+
+.test-main .test-flowchart .options .bi-arrows-angle-expand::after {
+  content: "";
+  background-color: #aaaaaa9e;
+  width: 1px;
+  height: 70%;
+  position: absolute;
+
+  right: 0;
+  top: 10%;
+}
+
+.test-main .test-flowchart .options .bi-clipboard::after {
+  content: "";
+  background-color: #aaaaaa9e;
+  width: 1px;
+  height: 70%;
+  position: absolute;
+  right: 0;
+  top: 10%;
+}
+
+.test-main > .test-flowchart > .test-designer {
+  height: stretch;
+  background-color: #cecece;
+  width: 100%;
+  height: 90%;
+}
+
+.test-main > .test-data {
+  margin: 0;
+  width: 300px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid turquoise;
+  color: #000;
+}
+
+.test-main > .test-data > div {
+  flex: 1 1 50%;
+}
+
+.test-main .test-data .test-variables > span,
+.test-main .test-data .test-parameters > span {
+  color: #fff;
+  padding: 0.1em;
+  font-size: 14px;
+  display: inline-block;
+  width: 100%;
+  background-color: var(--v_and_p);
+}
+
+.test-variables,
+.test-parameters {
+  position: relative;
+}
+
+.bi-plus {
+  position: absolute;
+  top: 1.4em;
+  right: 0.2em;
+}
+
+.table-header {
+  margin-top: 1.4em;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #aaa;
+  color: var(--top-test);
+  font-weight: 500;
+  padding: 0 1em;
+  font-size: 14px;
+}
+
+.test-variables > .table-header {
+  justify-content: start;
+  gap: 5.5em;
+}
+
+/* end */
