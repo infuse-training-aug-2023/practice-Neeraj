@@ -1,7 +1,6 @@
 require 'selenium-webdriver'
 
 # Open Chrome Browser
-
 Selenium::WebDriver::Chrome::Service.driver_path = 'C:\Users\neera.yadav\Documents\BrowserDrivers\chromedriver-win64\chromedriver-win64\chromedriver.exe'
 driver = Selenium::WebDriver.for :chrome
 
@@ -12,14 +11,11 @@ slider_handle = driver.find_element(class: 'ui-slider-handle')
 
 initial_amount = driver.find_element(id: 'amount').attribute('value')
 
-move_distance = slider_handle.size.width * 0.5
+# Click on the slider handle to focus it
+slider_handle.click
 
-action_builder = driver.action
-
-action_builder.click_and_hold(slider_handle)
-              .move_by_offset(move_distance, 0)
-              .release
-              .perform
+# Send the right arrow key to move the slider
+slider_handle.send_keys(:arrow_right)
 
 changed_amount = driver.find_element(id: 'amount').attribute('value')
 
