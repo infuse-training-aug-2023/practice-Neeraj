@@ -1,35 +1,46 @@
 require 'selenium-webdriver'
 
-# Set the path to the ChromeDriver executable
-Selenium::WebDriver::Chrome::Service.driver_path = 'C:\Users\neera.yadav\Documents\BrowserDrivers\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+class WikipediaAutomation
+  def initialize
+    Selenium::WebDriver::Chrome::Service.driver_path = 'C:\Users\neera.yadav\Documents\BrowserDrivers\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+    
+    @driver = Selenium::WebDriver.for :chrome
+    
+    @driver.get 'https://en.wikipedia.org/wiki/Main_Page'
+  end
 
-# Create a new instance of the WebDriver using Chrome
-driver = Selenium::WebDriver.for :chrome
+  def search_and_click_result(search_query)
+    search_input = @driver.find_element(id: 'searchInput')
+    
+    search_input.send_keys(search_query)
+    
+    @driver.execute_script("document.getElementById('searchInput').form.submit();")
+    
+    wait = Selenium::WebDriver::Wait.new(timeout: 10)
+    wait.until { @driver.find_element(id: 'firstHeading') }
+    
+    search_result_link = @driver.find_element(css: '.mw-search-result-heading a')
+    search_result_link.click
+  end
 
-# Navigate to the Wikipedia website
-driver.get 'https://en.wikipedia.org/wiki/Main_Page'
+  def extract_article_title
+    wait = Selenium::WebDriver::Wait.new(timeout: 10)
+    wait.until { @driver.find_element(id: 'firstHeading') }
+    
+    article_title = @driver.find_element(id: 'firstHeading').text
+    article_title
+  end
 
-# Find the search input element
-search_input = driver.find_element(id: 'searchInput')
+  def close_browser
+    @driver.quit
+  end
+end
 
-# Type in a search query (e.g., "Selenium WebDriver")
-search_input.send_keys('Selenium WebDriver')
+wikipedia_automation = WikipediaAutomation.new
 
-# Submit the search form using JavaScript
-driver.execute_script("document.getElementById('searchInput').form.submit();")
+wikipedia_automation.search_and_click_result('Selenium WebDriver')
 
-# Wait for search results to load
-wait = Selenium::WebDriver::Wait.new(timeout: 10)
-wait.until { driver.find_element(id: 'firstHeading') }
-
-# Click on the search result link
-search_result_link = driver.find_element(css: '.mw-search-result-heading a')
-search_result_link.click
-
-# Extract the title of the article
-article_title = driver.find_element(id: 'firstHeading').text
-
+article_title = wikipedia_automation.extract_article_title
 puts "Title of the article: #{article_title}"
 
-# Close the browser
-driver.quit
+wikipedia_automation.close_browser
