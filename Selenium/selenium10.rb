@@ -6,28 +6,20 @@ driver = Selenium::WebDriver.for :chrome
 
 driver.get 'https://computer-database.gatling.io/computers'
 
-target_column_header_text = "Computer name"
+table = driver.find_element(css: 'table.computers')
 
-header_row = driver.find_element(css: 'thead tr')
+rows = table.find_elements(css: 'tbody tr')
 
-target_column_index = header_row.find_elements(tag_name: 'th').find_index do |header_cell|
-  header_cell.text == target_column_header_text
-end
-
-table_body = driver.find_element(css: 'tbody')
-
-rows = table_body.find_elements(tag_name: 'tr')
-
-column_values = []
+computer_names = []
 
 rows.each do |row|
-  cells = row.find_elements(tag_name: 'td')
-  cell_text = cells[target_column_index].text
-  column_values << cell_text
+  columns = row.find_elements(tag_name: 'td')
+  computer_name = columns[0].text
+  computer_names << computer_name
 end
 
-column_values.each do |value|
-  puts value
+computer_names.each do |name|
+  puts name
 end
 
 driver.quit

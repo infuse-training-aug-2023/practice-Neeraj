@@ -11,8 +11,7 @@ dropdown_element = driver.find_element(:xpath, '/html/body/app-root/app-forms/se
 dropdown = Selenium::WebDriver::Support::Select.new(dropdown_element)
 
 # Get all options and print their text
-options = dropdown.options
-options.each do |option|
+dropdown.options.each do |option|
   puts option.text
 end
 
