@@ -1,0 +1,17 @@
+version: '3'
+services:
+  react-app:
+    build:
+      context: ./exercise6
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+  node-server:
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - react-app
