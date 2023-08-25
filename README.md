@@ -1,6 +1,6 @@
 # Docker - Neeraj Yadav
 
-## Exercise 1 - Array manipulation using numpy and PIL
+## Exercise 1 - Array manipulation using numpy and PIL 
 
 ### Dependenicies
 FROM python:3.8
